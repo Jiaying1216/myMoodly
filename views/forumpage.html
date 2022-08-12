@@ -60,14 +60,13 @@
             <div class="row align-items-center">
               <div class="col-md-8 mb-3 mb-sm-0">
                 <h5>
-                  <%= console.log(item.forumTitle + "id is: " + item.forumId)%>
                   <!-- <a href="/eachForum" value="<%= item.forumId%>" class="btn"><%= item.forumTitle%></a> -->
                   <form method="get" action="./eachForum">
                     <button type="submit" class="btn" id="forumId" name="forumId" value="<%= item.forumId%>"><%= item.forumTitle%></button>
                   </form>
                 </h5>
-                <p class="text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">20 minutes</a> <span
-                    class="op-6">ago by</span> <a class="text-black" href="#"><%= item.username%></a></p>
+                <p class="text-sm"><span class="op-6">Posted on</span> <a class="text-black" href="#">[date]</a> <span
+                    class="op-6"> by </span> <a class="text-black" href="#"><%= item.username%></a></p>
                 <p class="text-sm op-5"> <a class="text-black mr-2" href="#"><%= item.forumContent%></a> </p>
               </div>
               <div class="col-md-4 op-7">

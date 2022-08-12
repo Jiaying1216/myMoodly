@@ -184,10 +184,44 @@ module.exports = function (app) {
       forumListRef.on('value', (data) => {
         data.forEach(function (snapshot) {
           forumList.push(snapshot.val());
+
+          
         })
       });
 
       res.redirect('back');
+    });
+
+    app.get("/forumByPopularity", function (req, res) {
+      var forumListRef = forumRef;
+      var forumList = [];
+
+      forumListRef.orderByValue().on('value', (snapshot) => {
+        snapshot.forEach((data) => {
+          console.log('The ' + data.val().forumId + 'the likes are ' + data.val().numOfLikes);
+          forumListRef.orderByChild(data.val().forumId).once("value").then((list) => {
+            list.forEach((product) => {
+              console.log(product.val())
+              
+            })
+          })
+
+          // var orderByPopular = forumRef.child(data.val().forumId);
+          // orderByPopular.orderByValue().once("value").then((list) => {
+          //   list.forEach((product) => {
+          //     console.log(product.val())
+          //     forumList.push(product.val());
+          //     console.log(forumList);
+
+          //   })
+          // })
+          // forumList.push(data.val());
+          
+
+        });
+      });
+    
+      res.render("forumpage.html", {forumItem: forumList});
     });
 
     //REGISTER
@@ -212,6 +246,8 @@ module.exports = function (app) {
           console.log('Error creating new user:', error);
         });
     });
+
+    
   
     
     //-----mood_tracker-----
