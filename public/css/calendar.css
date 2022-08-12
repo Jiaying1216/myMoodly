@@ -74,7 +74,7 @@
   justify-content: center;
   align-items: center;
   /* text-shadow: 0 0.3rem 0.5rem rgba(126, 95, 95, 0.5); */
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .days {
@@ -93,7 +93,7 @@
   align-items: center;
   /* text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5); */
   transition: background-color 0.2s;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .days div:hover:not(.today) {
@@ -106,7 +106,13 @@
 .next-date {
   opacity: 0.5;
 }
-
-/* .today {
-  background-color: #86e2e6;
+/* 
+.today {
+  border:0.4rem solid #7e6e5a
 } */
+
+@media only screen and (max-width: 425px) {
+  .weekdays div {
+    font-size: 1rem;
+  }
+}

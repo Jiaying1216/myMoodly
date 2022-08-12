@@ -42,6 +42,8 @@
 
 </br>
 <div>
+    <% console.log(today_mood)%>
+    <span><%= today_mood %></span>
     <div class="card">
         <div class="card-header">
             How do you feel today?
@@ -57,10 +59,10 @@
                 <a href="/neutral">
                     <i class="bi bi-emoji-neutral-fill" style="color: rgb(204, 190, 66); font-size: 5rem;"></i>
                 </a>
-                <a href="/sad">
+                <a href="/mad">
                     <i class="bi bi-emoji-angry-fill" style="color: rgb(204, 66, 66); font-size: 5rem;"></i>
                 </a>
-                <a href="/mad">
+                <a href="/sad">
                     <i class="bi bi-emoji-frown-fill" style="color: rgb(66, 110, 204); font-size: 5rem;"></i>
                 </a>
             </div>     
@@ -96,6 +98,8 @@
 </body>
 
 <script>
+    mood = `<%= today_mood %>`;
+    console.log(mood);
     const date = new Date();
 
         const renderCalendar = () => {
@@ -156,6 +160,7 @@
                     date.getMonth() === new Date().getMonth()
                 ) {
                     days += `<div class="today" id="today">${i}</div>`;
+                    
                 } else {
                     days += `<div>${i}</div>`;
                 }
@@ -164,6 +169,26 @@
             for (let j = 1; j <= nextDays; j++) {
                 days += `<div class="next-date">${j}</div>`;
                 monthDays.innerHTML = days;
+            }
+
+            if (mood == "neutral") {
+                var element = document.getElementById("today");
+                element.style.backgroundColor = "rgb(204, 190, 66)";
+            } else if (mood == "happy"){
+                var element = document.getElementById("today");
+                element.style.backgroundColor = "rgb(89, 204, 66)";
+            } else if (mood == "mad"){
+                var element = document.getElementById("today");
+                element.style.backgroundColor = "rgb(204, 66, 66)";
+            } else if (mood == "sad"){
+                var element = document.getElementById("today");
+                element.style.backgroundColor = "rgb(66, 110, 204)";
+            } else if (mood == "cool"){
+                var element = document.getElementById("today");
+                element.style.backgroundColor = "rgb(66, 204, 186)";
+            } else {
+                var element = document.getElementById("today");
+                element.style.backgroundColor = "white";
             }
         };
 
@@ -178,35 +203,9 @@
         });
 
         renderCalendar();
-
-        function addHappyMood()
-        {
-            console.log("happy");
-            var element = document.getElementById("today");
-            element.style.backgroundColor = "rgb(89, 204, 66)";
-        }
-
-        function addCoolMood() {
-                console.log("cool");
-                var element = document.getElementById("today");
-                element.style.backgroundColor = "rgb(66, 204, 186)";
-        }
-        function addNeutralMood() {
-                console.log("neutral");
-                var element = document.getElementById("today");
-                element.style.backgroundColor = "rgb(204, 190, 66)";
-        }
-        function addSadMood() {
-                console.log("sad");
-                var element = document.getElementById("today");
-                element.style.backgroundColor = "rgb(204, 66, 66)";
         
-        }
-        function addMadMood() {
-                console.log("mad");
-                var element = document.getElementById("today");
-                element.style.backgroundColor = "rgb(66, 110, 204)";
-        }
+    
+    
 
 </script>
 
