@@ -69,11 +69,12 @@
   font-size: 2rem;
   font-weight: 500;
   letter-spacing: 0.1rem;
-  width: calc(1868px / 7);
+  width: calc(100% / 7);
   display: flex;
   justify-content: center;
   align-items: center;
   /* text-shadow: 0 0.3rem 0.5rem rgba(126, 95, 95, 0.5); */
+  border: 1px solid black;
 }
 
 .days {
@@ -85,14 +86,14 @@
 
 .days div {
   font-size: 1rem;
-  margin: 1rem;
-  width: calc(1644px / 7);
+  width: calc(100% / 7);
   height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   /* text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5); */
   transition: background-color 0.2s;
+  border: 1px solid black;
 }
 
 .days div:hover:not(.today) {

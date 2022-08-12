@@ -25,4 +25,3 @@ app.listen(port, () => console.log(`mood.ly app listening on port ${port}!`));
 
 var path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
-
